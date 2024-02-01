@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+FILE=$1
+while read NUMBER;
+do
+	factors=($(factor "$NUMBER"))
+	echo "$NUMBER=$((${factors[1]}))*$((${NUMBER}/${factors[1]}))"
+done < "$FILE"
