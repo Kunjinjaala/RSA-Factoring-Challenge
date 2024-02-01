@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+import sympy
+import sys
+
+def factorize_large_number(file_path):
+    with open(file_path, 'r') as file:
+        n = int(file.readline().strip())
+    
+    p, q = sympy.factorint(n).keys()
+    
+    return p, q
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        sys.exit(1)
+    
+    file_path = sys.argv[1]
+    p, q = factorize_large_number(file_path)
+    print(f"p: {p}\nq: {q}")
+
